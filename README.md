@@ -38,4 +38,19 @@ var List = new mongoose.Schema({
 	items: [Item]
 });
 ```
+## Wireframes
+
+## Site Map
+
+## User Stories
+1. as a user, I can create and login to an account
+2. as a user, I can view all items I've eaten so far
+3. as a user, I can add and delete items to list of things I've eaten so far
+4. as a user, I can see my items by food group
+5. as a user, I can see the environmental results of my items
+
+## Research Topics
+* (6 points) Integrate user authentication
+* ()
+
 
