@@ -39,8 +39,12 @@ var List = new mongoose.Schema({
 });
 ```
 ## Wireframes
+![Alt text](/wireframes/IMG_01.JPG)
+![Alt text](/wireframes/IMG_02.JPG)
+![Alt text](/wireframes/IMG_03.JPG)
 
-## Site Map
+## Site Map!
+![Alt text](/sitemap/sitemap.JPG)
 
 ## User Stories
 1. as a user, I can create and login to an account
