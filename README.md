@@ -55,6 +55,7 @@ var List = new mongoose.Schema({
 
 ## Research Topics
 * (6 points) Integrate user authentication
-* ()
+* (3 points) External API
+** USDA food database to identify input
 
 
