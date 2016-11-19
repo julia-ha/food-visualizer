@@ -1,0 +1,19 @@
+{{postFoodForm}}
+My foooood!
+<form method="POST" action="/post-food/delete"><br>
+{{#each items}}
+	<input type='checkbox' name='checkboxPost' value={{_id}}> {{this.food}}<br><br>
+{{/each}}
+<input type='submit' value='delete checked items'>
+<input type='hidden' name='hiddenSlug' value={{items.slug}}>
+</form>
+
+
+<br><br><br>
+Add Food!
+<form method="POST" action="/home">
+	add new food:<input type="text" name="postNewFood"><br>
+	<input type='submit' value='Add New Food'>
+</form>
+<br><br>
+
