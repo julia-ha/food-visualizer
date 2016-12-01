@@ -25,7 +25,10 @@ router.post('/home', function(req, res, next) {
 	});
 
 	console.log("myList" + myList);
+	console.log("food "+ food);
+
 	myList.items.push(food);
+	console.log("myList items "+myList.items);
 
 	myList.save(function(err, images, count) {
 		console.log(err);
