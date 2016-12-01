@@ -12,10 +12,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/home', function(req, res, next) {
+router.get('/home', function(req, res, next) {	
 		res.render('postFood', {items: myList.items});
 		console.log(myList.items);
-		
 });
 
 router.post('/home', function(req, res, next) {
@@ -24,24 +23,26 @@ router.post('/home', function(req, res, next) {
 		food: req.body.postNewFood
 	});
 
-	console.log("myList" + myList);
-	console.log("food "+ food);
+	//console.log("myList" + myList);
+	//console.log("food "+ food);
 
 	myList.items.push(food);
 	console.log("myList items "+myList.items);
 
+	/*
+
 	myList.save(function(err, images, count) {
 		console.log(err);
+		console.log("in here");
 		if (err === null){
 			console.log(myList.items);
 			res.redirect('/home');
 		}
 		//mongoose.disconnect();
 	});
+	*/
+	res.redirect('/home');
 	
-
-	//List.find({}, function(req, res, next))
-
 
 });
 
@@ -57,7 +58,6 @@ router.get('/image-posts/:slug', function(req, res, next) {
 
 router.post('/post-food/delete', function(req, res, next){
 	//List.findOne({slug:req.body.hiddenSlug}, function(err, post, count){
-
 		var ids = req.body.checkboxPost;
 		if (Array.isArray(ids)){
 			for (var i = 0; i < ids.length; i++){
@@ -67,10 +67,13 @@ router.post('/post-food/delete', function(req, res, next){
 			myList.items.id(ids).remove();
 		}
 
+		res.redirect('/home');
+		/*
 		myList.save(function(err, images, count){
 			res.redirect('/home');
 		});
-
+		*/
+		
 	//});
 });
 
