@@ -23,6 +23,8 @@ router.post('/home', function(req, res, next) {
 	var food = new Item({
 		food: req.body.postNewFood
 	});
+
+	console.log("myList" + myList);
 	myList.items.push(food);
 
 	myList.save(function(err, images, count) {
@@ -33,6 +35,11 @@ router.post('/home', function(req, res, next) {
 		}
 		//mongoose.disconnect();
 	});
+	
+
+	//List.find({}, function(req, res, next))
+
+
 });
 
 /*
