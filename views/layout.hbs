@@ -5,6 +5,14 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    {{{body}}}
+    {{#if user}}
+		<div>You're currently logged in as: <a href=/users/{{user.username}}>{{user.username}}</a></div>
+		{{else}}
+		<a href="/login">login</a> or 
+		<a href="/register">register</a>
+		{{/if}}
+		<div>
+			{{{body}}}
+		</div>
   </body>
 </html>

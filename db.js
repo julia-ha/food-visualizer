@@ -1,23 +1,15 @@
 var mongoose = require('mongoose'),
 	URLSlugs = require('mongoose-url-slugs');
+var passportLocalMongoose = require('passport-local-mongoose');
+
+
 
 
 /*
-var Image = new mongoose.Schema({
-	caption: String,
-	url: String
-});
-
-var ImagePost = new mongoose.Schema({
-	title: String,
-	images: [Image]
-});
-*/
-
-var User = new mongoose.Schema({
-  // username, password provided by plugin
+var UserSchema = new mongoose.Schema({
+  // username, password provided by Passport plugin
   list: [{type: mongoose.Schema.Types.ObjectId, ref: 'List' }],
-  results: [{type: mongoose.Schema.Types.ObjectId, ref: 'Results'}]
+  //results: [{type: mongoose.Schema.Types.ObjectId, ref: 'Results'}]
 });
 
 //Items
@@ -33,17 +25,44 @@ var Item = new mongoose.Schema({
 //keeps track of all items added by user
 var List = new mongoose.Schema({
     //user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
-    createdAt: {type: Date},
+    //createdAt: {type: Date},
+    user: {type: mongoose.Schema.Types.ObjectID, ref: 'User'},
     items: [Item]
+});
+
+*/
+
+var UserSchema = new mongoose.Schema({
+  // username, password provided by Passport plugin
+  items: [{type: mongoose.Schema.Types.ObjectId, ref:'Item'}]
+  //results: [{type: mongoose.Schema.Types.ObjectId, ref: 'Results'}]
+});
+
+var Item = new mongoose.Schema({
+  user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
+  food: {type: String, required: true}
 });
 
 
 
-//ImagePost.plugin(URLSlugs('title'));
 
-mongoose.model('User', User);
+
+
+
+
+
+
+
+
+
+
+
+
+UserSchema.plugin(passportLocalMongoose);
+
+mongoose.model('User', UserSchema);
 mongoose.model('Item', Item);
-mongoose.model('List', List);
+//mongoose.model('List', List);
 
 mongoose.Promise = global.Promise;
 //mongoose.connect('mongodb://localhost/finalproject');

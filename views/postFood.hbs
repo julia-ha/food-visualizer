@@ -1,5 +1,9 @@
 {{postFoodForm}}
+{{#if showForm}}
 My foooood!
+<br>
+<h2> {{username}}'s Food List</h2><br>
+
 <form method="POST" action="/post-food/delete"><br>
 {{#each items}}
 	<input type='checkbox' name='checkboxPost' value={{_id}}> {{this.food}}<br><br>
@@ -10,10 +14,13 @@ My foooood!
 
 
 <br><br><br>
-Add Food!
-<form method="POST" action="/home">
+Add Food!<br>
+<form method="POST" action="/users/:{{username}}">
 	add new food:<input type="text" name="postNewFood"><br>
 	<input type='submit' value='Add New Food'>
 </form>
 <br><br>
+
+{{/if}}
+
 
