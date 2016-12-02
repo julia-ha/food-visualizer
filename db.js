@@ -64,8 +64,10 @@ mongoose.model('User', UserSchema);
 mongoose.model('Item', Item);
 //mongoose.model('List', List);
 
-mongoose.Promise = global.Promise;
+mongoose.Promise = require('bluebird');
+//assert.equal(query.exec().constructor, require('bluebird'));
 //mongoose.connect('mongodb://localhost/finalproject');
+
 
 // is the environment variable, NODE_ENV, set to PRODUCTION? 
 if (process.env.NODE_ENV == 'PRODUCTION') {
