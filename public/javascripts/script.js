@@ -9,8 +9,8 @@ function main() {
 		var req = new XMLHttpRequest();
 		var user = document.getElementById("hiddenUser").value;
 		console.log(user);
-		//var url = "http://i6.cims.nyu.edu:15401/users/" + user + "/api";
-		var url = "http://localhost:3000/users/" + user + "/api";
+		var url = "http://i6.cims.nyu.edu:15401/users/" + user + "/api";
+		//var url = "http://localhost:3000/users/" + user + "/api";
 
 		req.open('GET', url, true);
 		req.addEventListener('load', function handleResponse() {
