@@ -12,9 +12,9 @@ var UserSchema = new mongoose.Schema({
 
 var Item = new mongoose.Schema({
   user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
-  food: {type: String, required: true}
+  food: {type: String, required: true},
+  foodType: {type: String}
 });
-
 
 
 
@@ -22,7 +22,6 @@ UserSchema.plugin(passportLocalMongoose);
 
 mongoose.model('User', UserSchema);
 mongoose.model('Item', Item);
-//mongoose.model('List', List);
 
 mongoose.Promise = require('bluebird');
 //assert.equal(query.exec().constructor, require('bluebird'));

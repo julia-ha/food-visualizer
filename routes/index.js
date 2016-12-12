@@ -65,19 +65,22 @@ router.get('/users/:username', function(req, res) {
     var showForm = !!req.user && req.user.username == user.username;
     res.render('postFood', { 
       showForm: showForm, 
-      items: user.items, 
+      items: user.items,
       username: user.username
     });
   });
 });
 
 router.post('/users/:username', function(req, res) {
+
 	var food = new Item({
 		food: req.body.postNewFood,
-		user: req.user._id
+		user: req.user._id,
+    foodType: req.body.postNewFoodGroup
 	});
 
   food.save(function(err, savedFood, count) {
+    if (err) {return res.send(500, 'Error occurred: database error. Click back button to return to user page.');}
     req.user.items.push(savedFood._id);
     req.user.save(function(err, savedUser, count) {
       res.redirect('/users/' + req.user.username);
@@ -85,9 +88,21 @@ router.post('/users/:username', function(req, res) {
   });
 });
 
+router.get('/logout', function(req, res){
+  /*
+  var loggedout = "Successfully logged out. Click button below to return to home.";
+  res.render('logOut', {logOut: loggedout});*/
+  delete req.user.username; delete req.body.username;
+  res.render('index', {user: null});
+});
 
 router.post('/post-food/delete', function(req, res, next){
 	User.findOne({username: req.user.username}, function (err, user, count){
+    if (err) {
+      var deleteError = "You must select at least one item to delete.";
+      res.render('postFood', {deleteError: deleteError});
+      res.redirect('/users/' + req.user.username);
+    }
 		var ids = req.body.checkboxPost;
 		if (Array.isArray(ids)){
 			for (var i = 0; i < ids.length; i++){
@@ -104,6 +119,20 @@ router.post('/post-food/delete', function(req, res, next){
 	});
 });
 
+router.get('/users/:username/api', function(req, res, next) {
+  console.log("here now");
+  console.log(req.user.username);
+  User.findOne({username: req.user.username}, function(err, user, count){
+    res.json(user.items.map(function(ele) {
+      return {
+        'food': ele.food,
+        'foodType': ele.foodType
+      };
+    }));
+
+
+  });
+});
 
 
 

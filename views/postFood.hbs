@@ -6,20 +6,34 @@ My foooood!
 
 <form method="POST" action="/post-food/delete"><br>
 {{#each items}}
-	<input type='checkbox' name='checkboxPost' value={{_id}}> {{this.food}}<br><br>
+	<input type='checkbox' name='checkboxPost' class='itemsList' value={{_id}}> {{this.food}} - {{this.foodType}}<br><br>
 {{/each}}
-<input type='submit' value='delete checked items'>
-<input type='hidden' name='hiddenSlug' value={{items.slug}}>
+{{#if deleteError}} {{deleteError}} {{/if}}
+<input type='submit' id='deleteBtn' value='delete checked items'>
 </form>
 
 
 <br><br><br>
 Add Food!<br>
 <form method="POST" action="/users/:{{username}}">
-	add new food:<input type="text" name="postNewFood"><br>
-	<input type='submit' value='Add New Food'>
+	add new food:<input type="text" id='postNewFood' name="postNewFood" required/><br>
+	select food group: <select name="postNewFoodGroup">
+		<option value="Fruits & Vegetables"> Fruits & Vegetables </option>
+		<option value="Legumes & Beans"> Legumes & Beans </option>
+		<option value="Grains & Cereals"> Grains & Cereals </option>
+		<option value="Nuts & Seeds"> Nuts & Seeds </option>
+		<option value="Seafood, Poultry, & Eggs"> Seafood, Poultry, & Eggs </option>
+		<option value="Red Meats & Pork"> Red Meats & Pork </option>
+		<option value="Dairy Products"> Dairy Products </option>
+	</select>
+	<input type='submit' id='addFoodBtn'value='Add New Food'>
 </form>
-<br><br>
+<br><br><br>
+
+<form method="get" action="">
+	<input type="submit" name="goBtn" id="goBtn" value="See my results!">
+	<input type='hidden' id='hiddenUser' name='hiddenUser' value={{username}}>
+</form>
 
 {{/if}}
 

@@ -3,11 +3,12 @@
   <head>
     <title>{{title}}</title>
     <script src="/javascripts/script.js" type="text/javascript"></script>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' type="text/css" media="screen" title="no title" charset="utf-8">
   </head>
-  <body>
+  <body id='body'>
     {{#if user}}
 		<div>You're currently logged in as: <a href=/users/{{user.username}}>{{user.username}}</a></div>
+		<div id="logout"> <a href="/logout">Logout</a></div>
 		{{else}}
 		<a href="/login">login</a> or 
 		<a href="/register">register</a>

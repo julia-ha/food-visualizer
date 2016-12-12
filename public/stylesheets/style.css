@@ -1,8 +1,19 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: /* energy */ linear-gradient(to top, RGB(255, 231, 96), RGB(255, 241, 163)),
+    /* land */ linear-gradient(to right, RGB(91, 150, 94), RGB(71, 91, 72)),
+    /* water */ linear-gradient(to right, RGB(0,890,233), RGB(110,75,233));
+  background-repeat:no-repeat;
+  background-position: 0 0px, 0 300px, 0 400px;
+  background-size: 100% 0px, 100% 0px, 100% 0px;
+
 }
 
 a {
   color: #00B7FF;
+}
+
+h2 {
+	color: green;
 }
