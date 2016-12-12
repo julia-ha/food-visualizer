@@ -3,9 +3,9 @@
 ## Overview
 What you consume to fuel your body matters. The food and agricultural products you use not only affect you, but they also play a role in the larger systems of global industrial food, agriculture and natural resources.
 
-My Food Visualizer is a web application that allows users to input what they've consumed and view the resources and environmental impact of their food.
+My Food Visualizer is a web application that allows users to input what they've consumed and view the resource allocation and environmental impact of their food.
 
-
+In this application, the agricultural resources are sorted into three categories: water, land, and energy---which encompasses fuel, waste, and fertilizer/pesticide use. The visualization of the user's input will be seen in strips of blue (water), green (land), and yellow (energy). Each block of color is calculated by using data from http://environmentalnutrition.org/ and http://waterfootprint.org/ to measure resource use relative to each food group.
 
 ##Data Model
 This web app will store Users and Items
