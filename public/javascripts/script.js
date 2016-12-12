@@ -18,7 +18,6 @@ function main() {
 			if (this.status >= 200 && this.status < 400) {
 				console.log("status ok");
     			var data = JSON.parse(req.responseText);
-    			//var body = document.getElementById('body');
     			console.log(body);
 
     			var water = 0,
@@ -71,8 +70,6 @@ function main() {
 		req.send();
 	});
 
-	/* delete items button error handling */
-	//var deleteBtn = document.getElementById('deleteBtn');
 	document.getElementById('deleteBtn').disabled = true;
 	var items = document.querySelectorAll('.itemsList');
 	console.log(items);

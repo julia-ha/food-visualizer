@@ -1,6 +1,5 @@
 {{postFoodForm}}
 {{#if showForm}}
-My foooood!
 <br>
 <h2> {{username}}'s Food List</h2><br>
 
@@ -8,7 +7,6 @@ My foooood!
 {{#each items}}
 	<input type='checkbox' name='checkboxPost' class='itemsList' value={{_id}}> {{this.food}} - {{this.foodType}}<br><br>
 {{/each}}
-{{#if deleteError}} {{deleteError}} {{/if}}
 <input type='submit' id='deleteBtn' value='delete checked items'>
 </form>
 

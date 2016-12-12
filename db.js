@@ -7,7 +7,6 @@ var passportLocalMongoose = require('passport-local-mongoose');
 var UserSchema = new mongoose.Schema({
   // username, password provided by Passport plugin
   items: [{type: mongoose.Schema.Types.ObjectId, ref:'Item'}]
-  //results: [{type: mongoose.Schema.Types.ObjectId, ref: 'Results'}]
 });
 
 var Item = new mongoose.Schema({
@@ -15,8 +14,6 @@ var Item = new mongoose.Schema({
   food: {type: String, required: true},
   foodType: {type: String}
 });
-
-
 
 UserSchema.plugin(passportLocalMongoose);
 
@@ -26,6 +23,7 @@ mongoose.model('Item', Item);
 mongoose.Promise = require('bluebird');
 //assert.equal(query.exec().constructor, require('bluebird'));
 //mongoose.connect('mongodb://localhost/finalproject');
+
 
 
 // is the environment variable, NODE_ENV, set to PRODUCTION? 
