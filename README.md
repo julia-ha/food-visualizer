@@ -1,4 +1,4 @@
-# My Food Visualizer (jjh497-final-project)
+# My Food Visualizer
 
 ## Overview
 What you consume to fuel your body matters. The food and agricultural products you use not only affect you, but they also play a role in the larger systems of global industrial food, agriculture and natural resources.
